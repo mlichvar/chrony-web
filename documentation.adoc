@@ -1,0 +1,67 @@
+= Documentation
+
+* link:faq.html[Frequently Asked Questions]
+
+== chrony 4.1
+* Manual pages
+** link:doc/4.1/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/4.1/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/4.1/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/4.1/installation.html[Installation]
+
+== chrony 4.0
+* Manual pages
+** link:doc/4.0/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/4.0/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/4.0/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/4.0/installation.html[Installation]
+
+== chrony 3.5
+* Manual pages
+** link:doc/3.5/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/3.5/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/3.5/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/3.5/installation.html[Installation]
+
+== chrony 3.4
+* Manual pages
+** link:doc/3.4/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/3.4/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/3.4/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/3.4/installation.html[Installation]
+
+== chrony 3.3
+* Manual pages
+** link:doc/3.3/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/3.3/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/3.3/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/3.3/installation.html[Installation]
+
+== chrony 3.2
+* Manual pages
+** link:doc/3.2/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/3.2/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/3.2/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/3.2/installation.html[Installation]
+
+== chrony 3.1
+* Manual pages
+** link:doc/3.1/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/3.1/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/3.1/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/3.1/installation.html[Installation]
+
+== chrony 2.4.1
+* Manual pages
+** link:doc/2.4/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/2.4/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/2.4/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/2.4/installation.html[Installation]
+
+== chrony 2.3
+* link:doc/2.3/manual.html[Manual]
+* link:doc/2.3/manual.html#Installation[Installation]
+
+== chrony 2.1.1
+* link:doc/2.1/manual.html[Manual]
+* link:doc/2.1/manual.html#Installation[Installation]

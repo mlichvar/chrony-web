@@ -1,0 +1,34 @@
+= Download
+
+== Latest stable release
+
+https://download.tuxfamily.org/chrony/chrony-4.1.tar.gz[chrony-4.1.tar.gz]
+(https://download.tuxfamily.org/chrony/chrony-4.1-tar-gz-asc.txt[PGP signature])
+
+//== Latest prerelease
+
+//https://download.tuxfamily.org/chrony/chrony-4.1-pre1.tar.gz[chrony-4.1-pre1.tar.gz]
+//(https://download.tuxfamily.org/chrony/chrony-4.1-pre1-tar-gz-asc.txt[PGP signature])
+
+== Other versions
+
+Older `chrony` versions can be downloaded from
+https://download.tuxfamily.org/chrony/.
+
+== Git repository
+
+The `chrony` git repository is available at
+https://git.tuxfamily.org/chrony/chrony.git/.
+
+The following command clones the repository:
+----
+git clone https://git.tuxfamily.org/chrony/chrony.git
+----
+
+The latest snapshot of the master branch is
+https://git.tuxfamily.org/chrony/chrony.git/snapshot/chrony-master.tar.gz[here].
+
+== Packages
+
+Most Linux distributions and BSD systems provide a `chrony` package, which
+should be preferred over compiling and installing from downloaded source code.

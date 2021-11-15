@@ -1,0 +1,564 @@
+News
+====
+
+== 13 May 2021: chrony-4.1 released
+
+=== Enhancements
+
+* Add support for NTS servers specified by IP address (matching
+  Subject Alternative Name in server certificate)
+* Add source-specific configuration of trusted certificates
+* Allow multiple files and directories with trusted certificates
+* Allow multiple pairs of server keys and certificates
+* Add copy option to server/pool directive
+* Increase PPS lock limit to 40% of pulse interval
+* Perform source selection immediately after loading dump files
+* Reload dump files for addresses negotiated by NTS-KE server
+* Update seccomp filter and add less restrictive level
+* Restart ongoing name resolution on online command
+
+=== Bug fixes
+
+* Fix responding to IPv4 command requests on FreeBSD
+* Fix dump files to not include uncorrected offset
+* Fix initstepslew to accept time from own NTP clients
+* Reset NTP address and port when no longer negotiated by NTS-KE server
+
+
+== 7 Oct 2020: chrony-4.0 released
+
+=== Enhancements
+
+* Add support for Network Time Security (NTS) authentication
+* Add support for AES-CMAC keys (AES128, AES256) with Nettle
+* Add authselectmode directive to control selection of unauthenticated sources
+* Add binddevice, bindacqdevice, bindcmddevice directives
+* Add confdir directive to better support fragmented configuration
+* Add sourcedir directive and "reload sources" command to support dynamic
+  NTP sources specified in files
+* Add clockprecision directive
+* Add dscp directive to set Differentiated Services Code Point (DSCP)
+* Add -L option to limit log messages by severity
+* Add -p option to print whole configuration with included files
+* Add -U option to allow start under non-root user
+* Allow maxsamples to be set to 1 for faster update with -q/-Q option
+* Avoid replacing NTP sources with sources that have unreachable address
+* Improve pools to repeat name resolution to get "maxsources" sources
+* Improve source selection with trusted sources
+* Improve NTP loop test to prevent synchronisation to itself
+* Repeat iburst when NTP source is switched from offline state to online
+* Update clock synchronisation status and leap status more frequently
+* Update seccomp filter
+* Add "add pool" command
+* Add "reset sources" command to drop all measurements
+* Add authdata command to print details about NTP authentication
+* Add selectdata command to print details about source selection
+* Add -N option and sourcename command to print original names of sources
+* Add -a option to some commands to print also unresolved sources
+* Add -k, -p, -r options to clients command to select, limit, reset data
+
+=== Bug fixes
+
+* Don't set interface for NTP responses to allow asymmetric routing
+* Handle RTCs that don't support interrupts
+* Respond to command requests with correct address on multihomed hosts
+
+=== Removed features
+
+* Drop support for RIPEMD keys (RMD128, RMD160, RMD256, RMD320)
+* Drop support for long (non-standard) MACs in NTPv4 packets (chrony 2.x
+  clients using non-MD5/SHA1 keys need to use option "version 3")
+* Drop support for line editing with GNU Readline
+
+
+== 20 Aug 2020: chrony-3.5.1 released
+
+=== Security fixes
+
+* Create new file when writing pidfile (CVE-2020-14367)
+
+=== CVE-2020-14367: Insecure writing of pidfile
+
+When chronyd is configured to save the pidfile in a directory where the
+chrony user has write permissions (e.g. /var/run/chrony - the default
+since chrony-3.4), an attacker that compromised the chrony user account
+could create a symbolic link at the location of the pidfile to make
+chronyd starting with root privileges follow the symlink and write its
+process ID to a file for which the chrony user doesn't have write
+permissions, causing a denial of service, or data loss.
+
+This issue was reported by Matthias Gerstner of SUSE.
+
+
+== 14 May 2019: chrony-3.5 released
+
+=== Enhancements
+
+* Add support for more accurate reading of PHC on Linux 5.0
+* Add support for hardware timestamping on interfaces with read-only
+  timestamping configuration
+* Add support for memory locking and real-time priority on FreeBSD,
+  NetBSD, Solaris
+* Update seccomp filter to work on more architectures
+* Validate refclock driver options
+
+=== Bug fixes
+
+* Fix bindaddress directive on FreeBSD
+* Fix transposition of hardware RX timestamp on Linux 4.13 and later
+* Fix building on non-glibc systems
+
+
+== 19 Sep 2018: chrony-3.4 released
+
+=== Enhancements
+
+* Add filter option to server/pool/peer directive
+* Add minsamples and maxsamples options to hwtimestamp directive
+* Add support for faster frequency adjustments in Linux 4.19
+* Change default pidfile to /var/run/chrony/chronyd.pid to allow
+  chronyd without root privileges to remove it on exit
+* Disable sub-second polling intervals for distant NTP sources
+* Extend range of supported sub-second polling intervals
+* Get/set IPv4 destination/source address of NTP packets on FreeBSD
+* Make burst options and command useful with short polling intervals
+* Modify auto_offline option to activate when sending request failed
+* Respond from interface that received NTP request if possible
+* Add onoffline command to switch between online and offline state
+  according to current system network configuration
+* Improve example NetworkManager dispatcher script
+
+=== Bug fixes
+
+* Avoid waiting in Linux getrandom system call
+* Fix PPS support on FreeBSD and NetBSD
+
+
+== 4 Apr 2018: chrony-3.3 released
+
+=== Enhancements
+
+* Add burst option to server/pool directive
+* Add stratum and tai options to refclock directive
+* Add support for Nettle crypto library
+* Add workaround for missing kernel receive timestamps on Linux
+* Wait for late hardware transmit timestamps
+* Improve source selection with unreachable sources
+* Improve protection against replay attacks on symmetric mode
+* Allow PHC refclock to use socket in /var/run/chrony
+* Add shutdown command to stop chronyd
+* Simplify format of response to manual list command
+* Improve handling of unknown responses in chronyc
+
+=== Bug fixes
+
+* Respond to NTPv1 client requests with zero mode
+* Fix -x option to not require CAP_SYS_TIME under non-root user
+* Fix acquisitionport directive to work with privilege separation
+* Fix handling of socket errors on Linux to avoid high CPU usage
+* Fix chronyc to not get stuck in infinite loop after clock step
+
+
+== 15 Sep 2017: chrony-3.2 released
+
+=== Enhancements
+
+* Improve stability with NTP sources and reference clocks
+* Improve stability with hardware timestamping
+* Improve support for NTP interleaved modes
+* Control frequency of system clock on macOS 10.13 and later
+* Set TAI-UTC offset of system clock with leapsectz directive
+* Minimise data in client requests to improve privacy
+* Allow transmit-only hardware timestamping
+* Add support for new timestamping options introduced in Linux 4.13
+* Add root delay, root dispersion and maximum error to tracking log
+* Add mindelay and asymmetry options to server/peer/pool directive
+* Add extpps option to PHC refclock to timestamp external PPS signal
+* Add pps option to refclock directive to treat any refclock as PPS
+* Add width option to refclock directive to filter wrong pulse edges
+* Add rxfilter option to hwtimestamp directive
+* Add -x option to disable control of system clock
+* Add -l option to log to specified file instead of syslog
+* Allow multiple command-line options to be specified together
+* Allow starting without root privileges with -Q option
+* Update seccomp filter for new glibc versions
+* Dump history on exit by default with dumpdir directive
+* Use hardening compiler options by default
+
+=== Bug fixes
+
+* Don't drop PHC samples with low-resolution system clock
+* Ignore outliers in PHC tracking, RTC tracking, manual input
+* Increase polling interval when peer is not responding
+* Exit with error message when include directive fails
+* Don't allow slash after hostname in allow/deny directive/command
+* Try to connect to all addresses in chronyc before giving up
+
+
+== 31 Jan 2017: chrony-3.1 released
+
+=== Enhancements
+
+* Add support for precise cross timestamping of PHC on Linux
+* Add minpoll, precision, nocrossts options to hwtimestamp directive
+* Add rawmeasurements option to log directive and modify measurements
+  option to log only valid measurements from synchronised sources
+* Allow sub-second polling interval with NTP sources
+
+=== Bug fixes
+
+* Fix time smoothing in interleaved mode
+
+
+== 16 Jan 2017: chrony-3.0 released
+
+=== Enhancements
+
+* Add support for software and hardware timestamping on Linux
+* Add support for client/server and symmetric interleaved modes
+* Add support for MS-SNTP authentication in Samba
+* Add support for truncated MACs in NTPv4 packets
+* Estimate and correct for asymmetric network jitter
+* Increase default minsamples and polltarget to improve stability
+  with very low jitter
+* Add maxjitter directive to limit source selection by jitter
+* Add offset option to server/pool/peer directive
+* Add maxlockage option to refclock directive
+* Add -t option to chronyd to exit after specified time
+* Add partial protection against replay attacks on symmetric mode
+* Don't reset polling interval when switching sources to online state
+* Allow rate limiting with very short intervals
+* Improve maximum server throughput on Linux and NetBSD
+* Remove dump files after start
+* Add tab-completion to chronyc with libedit/readline
+* Add ntpdata command to print details about NTP measurements
+* Allow all source options to be set in add server/peer command
+* Indicate truncated addresses/hostnames in chronyc output
+* Print reference IDs as hexadecimal numbers to avoid confusion with
+  IPv4 addresses
+
+=== Bug fixes
+
+* Fix crash with disabled asynchronous name resolving
+
+
+== 21 Nov 2016: chrony-2.4.1 released
+
+=== Bug fixes
+
+* Fix processing of kernel timestamps on non-Linux systems
+* Fix crash with smoothtime directive
+* Fix validation of refclock sample times
+* Fix parsing of refclock directive
+
+
+== 7 Jun 2016: chrony-2.4 released
+
+=== Enhancements
+
+* Add orphan option to local directive for orphan mode compatible with ntpd
+* Add distance option to local directive to set activation threshold
+  (1 second by default)
+* Add maxdrift directive to set maximum allowed drift of system clock
+* Try to replace NTP sources exceeding maximum distance
+* Randomise source replacement to avoid getting stuck with bad sources
+* Randomise selection of sources from pools on start
+* Ignore reference timestamp as ntpd doesn't always set it correctly
+* Modify tracking report to use same values as seen by NTP clients
+* Add -c option to chronyc to write reports in CSV format
+* Provide detailed manual pages
+
+=== Bug fixes
+
+* Fix SOCK refclock to work correctly when not specified as last refclock
+* Fix initstepslew and -q/-Q options to accept time from own NTP clients
+* Fix authentication with keys using 512-bit hash functions
+* Fix crash on exit when multiple signals are received
+* Fix conversion of very small floating-point numbers in command packets
+
+=== Removed features
+
+* Drop documentation in Texinfo format
+
+
+== 16 Feb 2016: chrony-2.3 released
+
+=== Enhancements
+
+* Add support for NTP and command response rate limiting
+* Add support for dropping root privileges on Mac OS X, FreeBSD, Solaris
+* Add require and trust options for source selection
+* Enable logchange by default (1 second threshold)
+* Set RTC on Mac OS X with rtcsync directive
+* Allow binding to NTP port after dropping root privileges on NetBSD
+* Drop CAP_NET_BIND_SERVICE capability on Linux when NTP port is disabled
+* Resolve names in separate process when seccomp filter is enabled
+* Replace old records in client log when memory limit is reached
+* Don't reveal local time and synchronisation state in client packets
+* Don't keep client sockets open for longer than necessary
+* Ignore poll in KoD RATE packets as ntpd doesn't always set it correctly
+* Warn when using keys shorter than 80 bits
+* Add keygen command to generate random keys easily
+* Add serverstats command to report NTP and command packet statistics
+
+=== Bug fixes
+
+* Fix clock correction after making step on Mac OS X
+* Fix building on Solaris
+
+
+== 20 Jan 2016: chrony-2.2.1 and chrony-1.31.2 released
+
+=== Security fixes
+
+* Restrict authentication of NTP server/peer to specified key (CVE-2016-1567)
+
+=== CVE-2016-1567: Impersonation between authenticated peers
+
+When a server/peer was specified with a key number to enable
+authentication with a symmetric key, packets received from the
+server/peer were accepted if they were authenticated with any of
+the keys contained in the key file and not just the specified key.
+
+This allowed an attacker who knew one key of a client/peer to modify
+packets from its servers/peers that were authenticated with other
+keys in a man-in-the-middle (MITM) attack. For example, in a network
+where each NTP association had a separate key and all hosts had only
+keys they needed, a client of a server could not attack other clients
+of the server, but it could attack the server and also attack its own
+clients (i.e. modify packets from other servers).
+
+To not allow the server/peer to be authenticated with other keys, the
+authentication test was extended to check if the key ID in the received
+packet is equal to the configured key number. As a consequence, it's
+no longer possible to authenticate two peers to each other with two
+different keys, both peers have to be configured to use the same key.
+
+This issue was discovered by Matt Street of Cisco ASIG.
+
+
+== 19 Oct 2015: chrony-2.2 released
+
+=== Enhancements
+
+* Add support for configuration and monitoring over Unix domain socket
+  (accessible by root or chrony user when root privileges are dropped)
+* Add support for system call filtering with seccomp on Linux (experimental)
+* Add support for dropping root privileges on NetBSD
+* Control frequency of system clock on FreeBSD, NetBSD, Solaris
+* Add system leap second handling mode on FreeBSD, NetBSD, Solaris
+* Add dynamic drift removal on Mac OS X
+* Add support for setting real-time priority on Mac OS X
+* Add maxdistance directive to limit source selection by root distance
+  (3 seconds by default)
+* Add refresh command to get new addresses of NTP sources
+* Allow wildcard patterns in include directive
+* Restore time from driftfile with -s option if later than RTC time
+* Add configure option to set default hwclockfile
+* Add -d option to chronyc to enable debug messages
+* Allow multiple addresses to be specified for chronyc with -h option
+  and reconnect when no valid reply is received
+* Make check interval in waitsync command configurable
+
+=== Bug fixes
+
+* Fix building on NetBSD, Solaris
+* Restore time from driftfile with -s option if reading RTC failed
+
+=== Removed features
+
+* Drop support for authentication with command key (run-time configuration
+  is now allowed only for local users that can access the Unix domain socket)
+
+
+== 23 Jun 2015: chrony-2.1.1 released
+
+=== Bug fixes
+
+* Fix clock stepping by integer number of seconds on Linux
+
+
+== 22 Jun 2015: chrony-2.1 released
+
+=== Enhancements
+
+* Add support for Mac OS X
+* Try to replace unreachable and falseticker servers/peers specified
+  by name like pool sources
+* Add leaponly option to smoothtime directive to allow synchronised
+  leap smear between multiple servers
+* Use specific reference ID when smoothing served time
+* Add smoothing command to report time smoothing status
+* Add smoothtime command to activate or reset time smoothing
+
+=== Bug fixes
+
+* Fix crash in source selection with preferred sources
+* Fix resetting of time smoothing
+* Include packet precision in peer dispersion
+* Fix crash in chronyc on invalid command syntax
+
+
+== 27 Apr 2015: chrony-2.0 released
+
+=== Enhancements
+
+* Update to NTP version 4 (RFC 5905)
+* Add pool directive to specify pool of NTP servers
+* Add leapsecmode directive to select how to correct clock for leap second
+* Add smoothtime directive to smooth served time and enable leap smear
+* Add minsources directive to set required number of selectable sources
+* Add minsamples and maxsamples options for all sources
+* Add tempcomp configuration with list of points
+* Allow unlimited number of NTP sources, refclocks and keys
+* Allow unreachable sources to remain selected
+* Improve source selection
+* Handle offline sources as unreachable
+* Open NTP server port only when necessary (client access is allowed by
+  allow directive/command or peer/broadcast is configured)
+* Change default bindcmdaddress to loopback address
+* Change default maxdelay to 3 seconds
+* Change default stratumweight to 0.001
+* Update adjtimex synchronisation status
+* Use system headers for adjtimex
+* Check for memory allocation errors
+* Reduce memory usage
+* Add configure options to compile without NTP, cmdmon, refclock support
+* Extend makestep command to set automatic clock stepping
+
+=== Bug fixes
+
+* Add sanity checks for time and frequency offset
+* Don't report synchronised status during leap second
+* Don't combine reference clocks with close NTP sources
+* Fix accepting requests from configured sources
+* Fix initial fallback drift setting
+
+
+== 7 Apr 2015: chrony-1.31.1 released
+
+=== Security fixes
+
+* Protect authenticated symmetric NTP associations against DoS attacks
+  (CVE-2015-1853)
+* Fix access configuration with subnet size indivisible by 4 (CVE-2015-1821)
+* Fix initialization of reply slots for authenticated commands (CVE-2015-1822)
+
+=== CVE-2015-1853: DoS attack on authenticated symmetric NTP associations
+
+An attacker knowing that NTP hosts A and B are peering with each other
+(symmetric association) can send a packet with random timestamps to host A with
+source address of B which will set the NTP state variables on A to the values
+sent by the attacker. Host A will then send on its next poll to B a packet with
+originate timestamp that doesn't match the transmit timestamp of B and the
+packet will be dropped. If the attacker does this periodically for both hosts,
+they won't be able to synchronize to each other.
+
+Authentication using a symmetric key can fully protect against this attack, but
+in implementations following the NTPv3 (RFC 1305) or NTPv4 (RFC 5905)
+specification the state variables were updated even when the authentication
+check failed and the association was not protected.
+
+=== CVE-2015-1821: Heap-based buffer overflow in access configuration
+
+When NTP or cmdmon access was configured (from chrony.conf or via authenticated
+cmdmon) with a subnet size that is indivisible by 4 and an address that has
+nonzero bits in the 4-bit subnet remainder (e.g. 192.168.15.0/22 or f000::/3),
+the new setting was written to an incorrect location, possibly outside the
+allocated array.
+
+An attacker that has the command key and is allowed to access cmdmon (only
+localhost is allowed by default) could exploit this to crash chronyd or
+possibly execute arbitrary code with the privileges of the chronyd process.
+
+=== CVE-2015-1822: Use of uninitialized pointer in command processing
+
+When allocating memory to save unacknowledged replies to authenticated command
+requests, the last "next" pointer was not initialized to NULL. When all
+allocated reply slots were used, the next reply could be written to an invalid
+memory instead of allocating a new slot for it.
+
+An attacker that has the command key and is allowed to access cmdmon (only
+localhost is allowed by default) could exploit this to crash chronyd or
+possibly execute arbitrary code with the privileges of the chronyd process.
+
+
+== 10 Sep 2014: chrony-1.31 released
+
+=== Enhancements
+
+* Support operation in other NTP eras (next era begins in 2036),
+  NTP time is mapped to [-50, +86] years around build date by default
+* Restore time from driftfile with -s when RTC is missing/unsupported
+* Close connected client sockets when not waiting for reply
+* Use one client socket with random port when acquisitionport is 0
+* Use NTP packets instead of UDP echo for presend
+* Don't adjust polling interval when sending fails
+* Allow binding to addresses that don't exist yet
+* Ignore measurements around leap second
+* Improve detection of unexpected time jumps
+* Include example of logrotate configuration, systemd services and
+  NetworkManager dispatcher script
+
+=== Bug fixes
+
+* Reconnect client sockets for each request to follow changes
+  in network configuration automatically
+* Restart timer when polling interval is changed on reset
+
+
+== 1 Jul 2014: chrony-1.30 released
+
+=== Enhancements
+
+* Add asynchronous name resolving with POSIX threads
+* Add PTP hardware clock (PHC) refclock driver
+* Add new generic clock driver to slew by adjusting frequency only
+  (without kernel PLL or adjtime) and use it on Linux
+* Add rtcautotrim directive to trim RTC automatically
+* Add hwclockfile directive to share RTC LOCAL/UTC setting with hwclock
+* Add maxslewrate directive to set maximum allowed slew rate
+* Add maxdispersion option for refclocks
+* Add -q/-Q options to set clock/print offset once and exit
+* Allow directives to be specified on chronyd command line
+* Replace frequency scaling in Linux driver with retaining of tick
+* Try to detect unexpected forward time jumps and reset state
+* Exit with non-zero code when maxchange limit is reached
+* Improve makestep to not start and stop slew unnecessarily
+* Change default corrtimeratio to 3.0 to improve frequency accuracy
+* Announce leap second only on last day of June and December
+* Use separate connected client sockets for each NTP server
+* Remove separate NTP implementation used for initstepslew
+* Limit maximum minpoll set by KoD RATE to default maxpoll
+* Don't send NTP requests with unknown key
+* Print warning when source is added with unknown key
+* Take leap second in PPS refclock from locked source
+* Make reading of RTC for initial trim more reliable
+* Don't create cmdmon sockets when cmdport is 0
+* Add configure option to set default user to drop root privileges
+* Add configure option to compile with debug messages
+* Print debug messages when -d is used more than once
+* Change format of messages written to terminal with -d
+* Write fatal messages also to stderr with -n
+* Use IP_RECVERR socket option in chronyc to not wait unnecessarily
+* Shorten default chronyc timeout for localhost
+* Change default hostname in chronyc from localhost to 127.0.0.1
+* Print error message on invalid syntax with all chronyc commands
+* Include simulation test suite using clknetsim
+
+=== Bug fixes
+
+* Fix crash when selecting with multiple preferred sources
+* Fix frequency calculation with large frequency offsets
+* Fix code writing drift and RTC files to compile correctly
+* Fix -4/-6 options in chronyc to not reset hostname set by -h
+* Fix refclock sample validation with sub-second polling interval
+* Set stratum correctly with non-PPS SOCK refclock and local stratum
+* Modify dispersion accounting in refclocks to prevent PPS getting
+  stuck with large dispersion and not accepting new samples
+
+
+== Older news
+
+See the http://git.tuxfamily.org/chrony/chrony.git/plain/NEWS[NEWS] file in
+the git repository.

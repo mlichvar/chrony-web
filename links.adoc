@@ -1,0 +1,59 @@
+= Useful links
+
+== Public NTP servers
+
+- https://www.pool.ntp.org/[pool.ntp.org]
+- http://support.ntp.org/bin/view/Servers/StratumOneTimeServers[List of stratum-1 servers]
+- http://support.ntp.org/bin/view/Servers/StratumTwoTimeServers[List of stratum-2 servers]
+
+== Installation, configuration, and monitoring
+
+- https://whatroute.net/chronycontrol.html[ChronyControl -- install and configure chronyd on macOS]
+- https://galaxy.ansible.com/list#/roles?autocomplete=chrony[Ansible chrony roles]
+- https://augeas.net/docs/references/lenses/files/chrony-aug.html[Augeas chrony module]
+- https://collectd.org/[collectd chrony plugin]
+- https://github.com/munin-monitoring/contrib/tree/master/plugins/chrony[Munin chrony plugin]
+- https://exchange.nagios.org/directory/Plugins/Network-Protocols/NTP-and-Time/check_ntp(chrony)/details[Nagios chrony check]
+- https://github.com/prometheus/node_exporter[Prometheus Node exporter]
+- https://github.com/influxdata/telegraf/tree/master/plugins/inputs/chrony[Telegraf chrony plugin]
+- https://share.zabbix.com/cat-app/ntp/chrony-accuracy-template[Zabbix chrony template]
+- https://github.com/ddrown/chrony-graph[chrony-graph -- generate graphs from chrony logs]
+- https://github.com/TheBlueMatt/chrony_ntp_logconv[chrony_ntp_logconv -- convert chrony logs for ntpviz]
+- https://github.com/mlichvar/ntp2chrony[ntp2chrony -- convert ntp configuration to chrony]
+- https://github.com/mlichvar/timedatex[timedatex -- systemd-timedated replacement]
+
+== SHM, SOCK, and PPS reference clocks
+
+- https://gpsd.gitlab.io/gpsd/[GPSd -- a GPS service daemon]
+- https://github.com/mlichvar/ntp-refclock[ntp-refclock -- Wrapper for ntpd drivers]
+- http://www.buzzard.me.uk/jonathan/radioclock.html[Radio Clock]
+- https://www.vanheusden.com/time/omnisync/[OmniSync]
+- https://vanheusden.com/time/rpi_gpio_ntp/[rpi_gpio_ntp]
+- https://github.com/mlichvar/leapshm[leapshm]
+- https://github.com/mlichvar/pps-gpio-poll[pps-gpio-poll]
+
+== Miscellanous
+
+- https://github.com/dennypage/ethtscal[Ethernet timestamp calibration]
+- https://github.com/not1337/pps-stuff[Linux PPS utilities]
+- https://github.com/mlichvar/ntpperf[NTP/PTP performance testing]
+
+== HOWTOs
+
+- https://gpsd.gitlab.io/gpsd/gpsd-time-service-howto.htm[GPSD Time Service HOWTO]
+
+== Protocol specification
+
+- https://datatracker.ietf.org/wg/ntp/documents/[Documents of IETF NTP working group]
+
+== Other NTP and SNTP implementations
+
+- https://www.ntp.org/[NTP]
+- https://www.ntpsec.org/[NTPsec]
+- http://www.openntpd.org/[OpenNTPD]
+- https://busybox.net/[BusyBox]
+- https://01.org/connman[ConnMan]
+- https://github.com/DragonFlyBSD/DragonFlyBSD/tree/master/usr.sbin/dntpd[dntpd]
+- http://doolittle.icarus.com/ntpclient/[ntpclient]
+- https://freedesktop.org/wiki/Software/systemd/[systemd-timesyncd]
+- https://github.com/mlichvar/rsntp[rsntp]

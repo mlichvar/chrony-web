@@ -1,0 +1,5 @@
+= Manual for version 2.3
+
+++++
+include::doc/2.3/chrony.html.body[]
+++++

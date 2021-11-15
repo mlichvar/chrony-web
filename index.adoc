@@ -1,0 +1,47 @@
+:mytitle: Home
+
+= Introduction
+
+`chrony` is a versatile implementation of the Network Time Protocol (NTP).
+It can synchronise the system clock with NTP servers, reference clocks
+(e.g. GPS receiver), and manual input using wristwatch and keyboard.
+It can also operate as an NTPv4 (RFC 5905) server and peer to provide
+a time service to other computers in the network.
+
+It is designed to perform well in a wide range of conditions, including
+intermittent network connections, heavily congested networks, changing
+temperatures (ordinary computer clocks are sensitive to temperature),
+and systems that do not run continuosly, or run on a virtual machine.
+
+Typical accuracy between two machines synchronised over the Internet is
+within a few milliseconds; on a LAN, accuracy is typically in tens of
+microseconds.  With hardware timestamping, or a hardware reference clock,
+sub-microsecond accuracy may be possible.
+
+Two programs are included in `chrony`, `chronyd` is a daemon that can be
+started at boot time and `chronyc` is a command-line interface program which
+can be used to monitor ``chronyd```'s performance and to change various
+operating parameters whilst it is running.
+
+== Supported systems
+
+The software is supported on Linux, FreeBSD, NetBSD, macOS, and Solaris.
+Closely related systems may work too. Any other system will likely require a
+porting exercise.
+
+== Contact
+
+There are `chrony-user` and `chrony-devel` mailing lists for user questions,
+bug reports, submitting patches, and development discussion. See the
+<<lists.adoc#,mailing lists>> page for more information.
+
+Security bugs are an exception and should be reported directly to the
+maintainer using encryption.
+
+`chrony` was written by http://www.rc0.org.uk/index.html[Richard Curnow] and is
+currently maintained by mailto:mlichvar@redhat.com[Miroslav Lichvar]
+link:gpgkey-8F375C7E8D0EE125A3D3BD51537E2B76F7680DAC.asc[(PGP key)].
+
+== License
+
+`chrony` is distributed under the GNU General Public License version 2.

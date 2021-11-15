@@ -1,0 +1,62 @@
+body {
+  background: #fff;
+}
+
+a:link, a:visited {
+  color: #f30;
+}
+
+a:hover {
+  color: #f90;
+}
+
+#document {
+  max-width: 50em;
+  overflow: hidden;
+}
+
+#content ul li {
+  list-style-type: square;
+}
+
+#menu {
+  border-right: 1px solid #ccc;
+  padding-right: 1em;
+  margin-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+#menu h1 {
+  color: #333;
+  letter-spacing: 0.0em;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+#menu li {
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+#menu a:link, a:visited {
+  text-decoration: none;
+}
+
+#menu a:hover {
+  text-decoration: underline;
+}
+
+#menu a.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: #000;
+}
+
+table.tableblock {
+  border-width: 1px;
+}

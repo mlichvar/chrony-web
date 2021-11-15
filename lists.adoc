@@ -1,0 +1,55 @@
+= Mailing lists
+
+There are three mailing lists relating to `chrony`:
+
+- `chrony-announce` is a low-volume list, intended for announcements about new
+  versions and other important news. All messages sent to the `chrony-announce`
+  list are sent also to the `chrony-users` and `chrony-dev` lists.
+- `chrony-users` is for general user discussions, questions, reporting bugs and
+  so on.
+- `chrony-dev` is for discussion about development, testing, new features,
+  submitting patches, and so on.
+
+Only subscribers can post to the lists. To subscribe to a list, send an email
+with `subscribe` as the subject to the corresponding request address listed
+below. To unsubscribe, send an email with `unsubscribe` as the subject to the
+same address.
+
+In both cases you will need to reply to a confirmation email that will be sent
+to you shortly after receiving the request. If you didn't get the confirmation
+email, please check your spam folder. If you have troubles with subscribing or
+unsubscribing, send an email to listmaster@chrony.tuxfamily.org.
+
+[cols="1,2,2",width="100%",options="header"]
+|==========================================================
+| List | Subscribe/unsubscribe address | List address
+| `chrony-announce` | chrony-announce-request@chrony.tuxfamily.org |
+  chrony-announce@chrony.tuxfamily.org
+| `chrony-users`    | chrony-users-request@chrony.tuxfamily.org |
+  chrony-users@chrony.tuxfamily.org
+| `chrony-dev`      | chrony-dev-request@chrony.tuxfamily.org |
+  chrony-dev@chrony.tuxfamily.org
+|==========================================================
+
+The mailing lists are archived by https://tuxfamily.org[TuxFamily] (updated
+daily), http://gmane.org/[Gmane], and https://www.mail-archive.com/[The Mail
+Archive]:
+
+[cols="1,1,1,1",width="100%"]
+|==========================================================
+| `chrony-announce` |
+https://listengine.tuxfamily.org/chrony.tuxfamily.org/chrony-announce[TuxFamily] |
+N/A |
+//http://news.gmane.org/gmane.comp.time.chrony.announce[Gmane] |
+N/A
+| `chrony-users`    |
+https://listengine.tuxfamily.org/chrony.tuxfamily.org/chrony-users[TuxFamily] |
+N/A |
+//http://news.gmane.org/gmane.comp.time.chrony.user[Gmane] |
+https://www.mail-archive.com/chrony-users@chrony.tuxfamily.org/[The Mail Archive]
+| `chrony-dev`      |
+https://listengine.tuxfamily.org/chrony.tuxfamily.org/chrony-dev[TuxFamily] |
+N/A |
+//http://news.gmane.org/gmane.comp.time.chrony.devel[Gmane] |
+https://www.mail-archive.com/chrony-dev@chrony.tuxfamily.org/[The Mail Archive]
+|==========================================================
