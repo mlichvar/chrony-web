@@ -5,10 +5,10 @@
 https://download.tuxfamily.org/chrony/chrony-4.1.tar.gz[chrony-4.1.tar.gz]
 (https://download.tuxfamily.org/chrony/chrony-4.1-tar-gz-asc.txt[PGP signature])
 
-//== Latest prerelease
+== Latest prerelease
 
-//https://download.tuxfamily.org/chrony/chrony-4.1-pre1.tar.gz[chrony-4.1-pre1.tar.gz]
-//(https://download.tuxfamily.org/chrony/chrony-4.1-pre1-tar-gz-asc.txt[PGP signature])
+https://download.tuxfamily.org/chrony/chrony-4.2-pre1.tar.gz[chrony-4.2-pre1.tar.gz]
+(https://download.tuxfamily.org/chrony/chrony-4.2-pre1-tar-gz-asc.txt[PGP signature])
 
 == Other versions
 
