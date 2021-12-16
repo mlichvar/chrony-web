@@ -1,6 +1,30 @@
 News
 ====
 
+== 16 Dec 2021: chrony-4.2 released
+
+=== Enhancements
+
+* Add support for NTPv4 extension field improving synchronisation
+  stability and resolution of root delay and dispersion (experimental)
+* Add support for NTP over PTP (experimental)
+* Add support for AES-CMAC and hash functions in GnuTLS
+* Improve server interleaved mode to be more reliable and support
+  multiple clients behind NAT
+* Update seccomp filter
+* Add statistics about interleaved mode to serverstats report
+
+=== Bug fixes
+
+* Fix RTC support with 64-bit time_t on 32-bit Linux
+* Fix seccomp filter to work correctly with bind*device directives
+* Suppress kernel adjustments of system clock (dosynctodr) on illumos
+
+=== Other changes
+
+* Switch Solaris support to illumos
+
+
 == 13 May 2021: chrony-4.1 released
 
 === Enhancements

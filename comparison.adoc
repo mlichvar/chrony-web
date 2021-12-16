@@ -3,7 +3,7 @@
 This document compares features and performance of the following NTP
 implementations:
 
-- https://chrony.tuxfamily.org[chrony-4.0]
+- https://chrony.tuxfamily.org[chrony-4.2]
 - https://www.ntp.org[ntp-4.2.8p15]
 - http://www.openntpd.org/portable.html[openntpd-6.2p3 (portable)]
 
@@ -19,13 +19,13 @@ find any.
 |==========================================================
 |                            | `chrony`| `ntp`   | `openntpd`
 | Supported systems          |
-    Linux, FreeBSD, NetBSD, Solaris, macOS |
+    Linux, FreeBSD, NetBSD, illumos, macOS |
     Linux, FreeBSD, NetBSD, OpenBSD, Solaris, macOS, Windows, ... |
     Linux, FreeBSD, NetBSD, OpenBSD, Solaris, macOS
 | License                    | GPLv2   | MIT + BSD | BSD
 | Programming language       | C       | C         | C
 | Size of stripped daemon binary in default configuration on Linux x86-64 |
-  278 KB | 889 KB | 92 KB
+  287 KB | 889 KB | 92 KB
 |==========================================================
 
 
@@ -79,9 +79,9 @@ find any.
 | Limited number of steps    | Yes (configurable) | No      | Yes
 | Panic threshold            | Infinity (configurable) | 1000 s (configurable) | N/A
 | Maximum slew rate          |
-    System specific (Linux: 100000 ppm, FreeBSD, NetBSD, macOS: 5000 ppm, Solaris: 32500 ppm) (configurable) |
+    System specific (Linux: 100000 ppm, FreeBSD, NetBSD, macOS: 5000 ppm, illumos: 32500 ppm) (configurable) |
     500 ppm      |
-    System specific (Linux: 500 ppm, FreeBSD, NetBSD: 5000 ppm, Solaris: 65000 ppm)
+    System specific (Linux: 500 ppm, FreeBSD, NetBSD: 5000 ppm, illumos: 65000 ppm)
 | Restore frequency from file | Yes     | Yes     | Yes
 | Limited wakeups (power saving) | Yes      | No      | Yes
 | Temperature compensation   | Yes     | No      | No
@@ -255,8 +255,8 @@ find any.
 |==========================================================
 |                                     | `chrony`| `ntp`   | `openntpd`
 | Root privileges dropping (in all processes)
-                                      | Yes (Linux) | Yes (Linux, NetBSD, Solaris) | No
-| Privilege separation                | Yes (FreeBSD, NetBSD, macOS, Solaris) | No      | Yes
+                                      | Yes (Linux) | Yes (Linux, NetBSD, illumos) | No
+| Privilege separation                | Yes (FreeBSD, NetBSD, macOS, illumos) | No      | Yes
 | System call filter (seccomp, pledge)| Yes (Linux) | Yes (Linux) | Yes (OpenBSD)
 | Random NTP client source port       | Yes     | No      | Yes
 | Fully random transmit timestamp in client packets | Yes     | No      | Yes

@@ -25,7 +25,7 @@ operating parameters whilst it is running.
 
 == Supported systems
 
-The software is supported on Linux, FreeBSD, NetBSD, macOS, and Solaris.
+The software is supported on Linux, FreeBSD, NetBSD, macOS, and illumos.
 Closely related systems may work too. Any other system will likely require a
 porting exercise.
 
@@ -38,8 +38,9 @@ bug reports, submitting patches, and development discussion. See the
 Security bugs are an exception and should be reported directly to the
 maintainer using encryption.
 
-`chrony` was written by http://www.rc0.org.uk/index.html[Richard Curnow] and is
-currently maintained by mailto:mlichvar@redhat.com[Miroslav Lichvar]
+`chrony` was originally written by http://www.rc0.org.uk/index.html[Richard
+Curnow]. It is currently maintained and developed by
+mailto:mlichvar@redhat.com[Miroslav Lichvar]
 link:gpgkey-8F375C7E8D0EE125A3D3BD51537E2B76F7680DAC.asc[(PGP key)].
 
 == License
