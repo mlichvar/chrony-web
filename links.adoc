@@ -21,6 +21,7 @@
 - https://github.com/TheBlueMatt/chrony_ntp_logconv[chrony_ntp_logconv -- convert chrony logs for ntpviz]
 - https://github.com/mlichvar/ntp2chrony[ntp2chrony -- convert ntp configuration to chrony]
 - https://github.com/mlichvar/timedatex[timedatex -- systemd-timedated replacement]
+- https://github.com/bradh/chrony-java-parent[Command and monitoring protocol in Java]
 
 == SHM, SOCK, and PPS reference clocks
 
@@ -34,6 +35,8 @@
 
 == Miscellanous
 
+- https://www.coreinfrastructure.org/blogs/securing-network-time[Security audit]
+- https://developers.redhat.com/blog/2015/06/01/five-different-ways-handle-leap-seconds-ntp[Handling leap seconds]
 - https://github.com/dennypage/ethtscal[Ethernet timestamp calibration]
 - https://github.com/not1337/pps-stuff[Linux PPS utilities]
 - https://github.com/mlichvar/ntpperf[NTP/PTP performance testing]
