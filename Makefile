@@ -16,7 +16,7 @@ output/%.asc: extra/%.asc
 output/%.css: extra/%.css
 	cp -p $< $@
 
-output/%.html: %.adoc
+output/%.html: %.adoc body-start.html process_html.sh
 	mkdir -p `dirname $@`
 	$(ADOC_COMMAND) $(ADOC_FLAGS) --out-file - $< | ./process_html.sh $* > $@
 
