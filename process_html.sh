@@ -14,6 +14,7 @@ sed \
   -e '/^<link.*nodir/d' \
 | sed \
   -e '/href=".*\/'$docname'.html"/s|\('$docname'.html"\)|\1 class="disabled"|' \
+  -e '/^<meta name="viewport"/s|\(initial-scale\)=1\.0|\1=0.5|' \
   -e 's|@SITEDIR@|'$sitedir'|g' \
   -e 's|@SYSCONFDIR@|/etc|g' \
   -e 's|@BINDIR@|/usr/local/bin|g' \
