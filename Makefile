@@ -3,7 +3,7 @@ ADOC_COMMAND=asciidoctor
 HOST_DIR=ssh.tuxfamily.org:chrony/chrony.tuxfamily.org-web/htdocs
 
 FILES = $(patsubst %.adoc,output/%.html,$(wildcard *.adoc doc/*/*.adoc))
-EXTRA_FILES = $(patsubst extra/%,output/%,$(wildcard extra/*.*))
+EXTRA_FILES = $(patsubst extra/%,output/%,$(wildcard extra/*.* extra/img/*.*))
 
 all: output $(FILES) $(EXTRA_FILES)
 
@@ -14,6 +14,10 @@ output/%.asc: extra/%.asc
 	cp -p $< $@
 
 output/%.css: extra/%.css
+	cp -p $< $@
+
+output/img/%.png: extra/img/%.png
+	mkdir -p `dirname $@`
 	cp -p $< $@
 
 output/%.html: %.adoc body-start.html process_html.sh
