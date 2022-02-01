@@ -1,4 +1,6 @@
 = Configuration examples and accuracy
+:toc:
+:numbered:
 
 == Client using public servers
 
