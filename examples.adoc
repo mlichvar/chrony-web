@@ -66,7 +66,8 @@ Name/IP Address            NP  NR  Span  Frequency  Freq Skew  Offset  Std Dev
 81.25.28.124                6   4   77m     +0.226      1.850   +598us   764us
 ----
 
-The offset from the client's tracking log in shown in the graph below as dots.
+The offset from the client's tracking log (the 7th column in the file) is
+shown in the graph below as dots.
 That is the error of the system clock that `chronyd` is assuming from its
 measurements and correcting. The red line is the actual error of the clock
 measured by a separate monitoring instance of `chronyd` using a GPS reference
