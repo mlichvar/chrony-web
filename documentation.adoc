@@ -71,11 +71,3 @@
 ** link:doc/2.4/chronyd.html[chronyd(8) - chrony daemon]
 ** link:doc/2.4/chronyc.html[chronyc(1) - command-line interface for chronyd]
 * link:doc/2.4/installation.html[Installation]
-
-== chrony 2.3
-* link:doc/2.3/manual.html[Manual]
-* link:doc/2.3/manual.html#Installation[Installation]
-
-== chrony 2.1.1
-* link:doc/2.1/manual.html[Manual]
-* link:doc/2.1/manual.html#Installation[Installation]
