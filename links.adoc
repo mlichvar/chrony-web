@@ -15,6 +15,7 @@
 - https://github.com/munin-monitoring/contrib/tree/master/plugins/chrony[Munin chrony plugin]
 - https://exchange.nagios.org/directory/Plugins/Network-Protocols/NTP-and-Time/check_ntp(chrony)/details[Nagios chrony check]
 - https://github.com/prometheus/node_exporter[Prometheus Node exporter]
+- https://github.com/SuperQ/chrony_exporter[Prometheus Chrony exporter]
 - https://github.com/influxdata/telegraf/tree/master/plugins/inputs/chrony[Telegraf chrony plugin]
 - https://share.zabbix.com/cat-app/ntp/chrony-accuracy-template[Zabbix chrony template]
 - https://github.com/ddrown/chrony-graph[chrony-graph -- generate graphs from chrony logs]
