@@ -28,6 +28,9 @@ git clone https://git.tuxfamily.org/chrony/chrony.git
 The latest snapshot of the master branch is
 https://git.tuxfamily.org/chrony/chrony.git/snapshot/chrony-master.tar.gz[here].
 
+A mirror of the repository is available at
+https://gitlab.com/chrony/chrony.
+
 == Packages
 
 Most Linux distributions and BSD systems provide a `chrony` package, which
