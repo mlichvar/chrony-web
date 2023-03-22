@@ -41,7 +41,7 @@
 - https://github.com/dennypage/ethtscal[Ethernet timestamp calibration]
 - https://github.com/not1337/pps-stuff[Linux PPS utilities]
 - https://github.com/mlichvar/ntpperf[NTP/PTP performance testing]
-- https://github.com/mlichvar/chrony-fuzz[Fuzz testing of chrony]
+- https://gitlab.com/chrony/chrony-fuzz[Fuzz testing of chrony]
 
 == HOWTOs
 
