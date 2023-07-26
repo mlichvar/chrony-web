@@ -1,1 +1,0 @@
-../../../chrony/doc/chrony.conf.adoc
