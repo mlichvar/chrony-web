@@ -32,24 +32,17 @@ unsubscribing, send an email to listmaster@chrony.tuxfamily.org.
 |==========================================================
 
 The mailing lists are archived by https://tuxfamily.org[TuxFamily] (updated
-daily), http://gmane.org/[Gmane], and https://www.mail-archive.com/[The Mail
-Archive]:
+daily) and https://www.mail-archive.com/[The Mail Archive]:
 
-[cols="1,1,1,1",width="100%"]
+[cols="1,1,1",width="100%"]
 |==========================================================
 | `chrony-announce` |
 https://listengine.tuxfamily.org/chrony.tuxfamily.org/chrony-announce[TuxFamily] |
-N/A |
-//http://news.gmane.org/gmane.comp.time.chrony.announce[Gmane] |
 N/A
 | `chrony-users`    |
 https://listengine.tuxfamily.org/chrony.tuxfamily.org/chrony-users[TuxFamily] |
-N/A |
-//http://news.gmane.org/gmane.comp.time.chrony.user[Gmane] |
 https://www.mail-archive.com/chrony-users@chrony.tuxfamily.org/[The Mail Archive]
 | `chrony-dev`      |
 https://listengine.tuxfamily.org/chrony.tuxfamily.org/chrony-dev[TuxFamily] |
-N/A |
-//http://news.gmane.org/gmane.comp.time.chrony.devel[Gmane] |
 https://www.mail-archive.com/chrony-dev@chrony.tuxfamily.org/[The Mail Archive]
 |==========================================================
