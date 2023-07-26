@@ -605,5 +605,5 @@ possibly execute arbitrary code with the privileges of the chronyd process.
 
 == Older news
 
-See the http://git.tuxfamily.org/chrony/chrony.git/plain/NEWS[NEWS] file in
+See the https://gitlab.com/chrony/chrony/-/raw/master/NEWS[NEWS] file in
 the git repository.

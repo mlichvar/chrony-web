@@ -1,6 +1,5 @@
 ADOC_FLAGS=--backend=html -B . -a linkcss -a stylesdir=nodir -a stylesheet=chrony.css -a docinfo1
 ADOC_COMMAND=asciidoctor
-HOST_DIR=ssh.tuxfamily.org:chrony/chrony.tuxfamily.org-web/htdocs
 
 FILES = $(patsubst %.adoc,output/%.html,$(wildcard *.adoc doc/*/*.adoc))
 EXTRA_FILES = $(patsubst extra/%,output/%,$(wildcard extra/*.* extra/img/*.* extra/css/*.*))
@@ -24,9 +23,6 @@ output/img/%.png: extra/img/%.png
 output/%.html: %.adoc body-start.html process_html.sh
 	mkdir -p `dirname $@`
 	$(ADOC_COMMAND) $(ADOC_FLAGS) --out-file - $< | ./process_html.sh $* > $@
-
-upload:
-	rsync -aP output/* $(HOST_DIR)
 
 clean:
 	rm -rf output

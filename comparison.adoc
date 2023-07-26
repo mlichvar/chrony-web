@@ -3,7 +3,7 @@
 This document compares features and performance of the following NTP
 implementations:
 
-- https://chrony.tuxfamily.org[chrony-4.2]
+- https://chrony-project.org[chrony-4.2]
 - https://www.ntp.org[ntp-4.2.8p15]
 - http://www.openntpd.org/portable.html[openntpd-6.2p3 (portable)]
 

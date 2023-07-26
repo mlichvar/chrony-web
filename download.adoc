@@ -2,34 +2,28 @@
 
 == Latest stable release
 
-https://download.tuxfamily.org/chrony/chrony-4.3.tar.gz[chrony-4.3.tar.gz]
-(https://download.tuxfamily.org/chrony/chrony-4.3-tar-gz-asc.txt[PGP signature])
+https://chrony-project.org/releases/chrony-4.3.tar.gz[chrony-4.3.tar.gz]
+(https://chrony-project.org/releases/chrony-4.3-tar-gz-asc.txt[PGP signature])
 
 == Latest prerelease
 
-https://download.tuxfamily.org/chrony/chrony-4.4-pre2.tar.gz[chrony-4.4-pre2.tar.gz]
-(https://download.tuxfamily.org/chrony/chrony-4.4-pre2-tar-gz-asc.txt[PGP signature])
+https://chrony-project.org/releases/chrony-4.4-pre2.tar.gz[chrony-4.4-pre2.tar.gz]
+(https://chrony-project.org/releases/chrony-4.4-pre2-tar-gz-asc.txt[PGP signature])
 
 == Other versions
 
 Older `chrony` versions can be downloaded from
-https://download.tuxfamily.org/chrony/.
+https://chrony-project.org/releases/.
 
 == Git repository
 
-The `chrony` git repository is available at
-https://git.tuxfamily.org/chrony/chrony.git/.
+The `chrony` git repository is here:
+https://gitlab.com/chrony/chrony
 
 The following command clones the repository:
 ----
-git clone https://git.tuxfamily.org/chrony/chrony.git
+git clone https://gitlab.com/chrony/chrony.git
 ----
-
-The latest snapshot of the master branch is
-https://git.tuxfamily.org/chrony/chrony.git/snapshot/chrony-master.tar.gz[here].
-
-A mirror of the repository is available at
-https://gitlab.com/chrony/chrony.
 
 == Packages
 
