@@ -276,7 +276,7 @@ find any.
 This is a comparison of accuracies that can be achieved when the NTP
 implementations are used as NTP clients in various clock and network
 conditions. The accuracy of the synchronized clock was measured in a
-http://mlichvar.fedorapeople.org/clknetsim/[simulated Linux environment]. The
+https://gitlab.com/chrony/clknetsim[simulated Linux environment]. The
 results are mean values and standard deviations from 100 simulations. The
 values are in microseconds.
 
