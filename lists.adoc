@@ -16,9 +16,11 @@ below. To unsubscribe, send an email with `unsubscribe` as the subject to the
 same address.
 
 In both cases you will need to reply to a confirmation email that will be sent
-to you shortly after receiving the request. If you didn't get the confirmation
-email, please check your spam folder. If you have troubles with subscribing or
-unsubscribing, send an email to listmaster@chrony.tuxfamily.org.
+to you shortly after receiving the request. The reply needs to be sent to the
+same request address (not the list address!). Hitting `reply` in your email
+client should set the address and subject correctly. If you did not get the
+confirmation email, please check your spam folder. If you have troubles with
+subscribing or unsubscribing, send an email to listmaster@chrony.tuxfamily.org.
 
 [cols="1,2,2",width="100%",options="header"]
 |==========================================================
