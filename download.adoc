@@ -2,13 +2,13 @@
 
 == Latest stable release
 
-https://chrony-project.org/releases/chrony-4.5.tar.gz[chrony-4.5.tar.gz]
-(https://chrony-project.org/releases/chrony-4.5-tar-gz-asc.txt[PGP signature])
+https://chrony-project.org/releases/chrony-4.6.tar.gz[chrony-4.6.tar.gz]
+(https://chrony-project.org/releases/chrony-4.6-tar-gz-asc.txt[PGP signature])
 
-== Latest prerelease
+//== Latest prerelease
 
-https://chrony-project.org/releases/chrony-4.6-pre1.tar.gz[chrony-4.6-pre1.tar.gz]
-(https://chrony-project.org/releases/chrony-4.6-pre1-tar-gz-asc.txt[PGP signature])
+//https://chrony-project.org/releases/chrony-4.6-pre1.tar.gz[chrony-4.6-pre1.tar.gz]
+//(https://chrony-project.org/releases/chrony-4.6-pre1-tar-gz-asc.txt[PGP signature])
 
 == Other versions
 
