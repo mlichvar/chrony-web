@@ -1,0 +1,79 @@
+= Compliant NTS key exporter context for AES-128-GCM-SIV AEAD
+
+This document specifies an NTS-KE record for negotiation of an
+https://datatracker.ietf.org/doc/html/rfc8915[RFC-8915]-compliant NTS key
+exporter context for the AES-128-GCM-SIV AEAD.
+
+== Background
+
+In `chrony` version 4.0 was added support for the Network Time Security (NTS)
+authentication mechanism. The AEAD algorithm used by NTS for encryption and
+authentication of NTP messages is negotiated between the client and server in
+NTS-KE. The only AEAD that `chrony` initially supported was AES-SIV-CMAC-256.
+
+In version 4.4 was added support for the AES-128-GCM-SIV AEAD. The main
+advantage of this AEAD are shorter keys, which makes the NTS cookies and
+NTS-protected messages shorter. Delivery of shorter NTP messages is more
+reliable over Internet, where some major network operators are known to block
+or limit rate of longer NTP packets as a mitigation against NTP mode-6 and
+mode-7 amplification attacks.
+
+The AES-128-GCM-SIV support has a bug. The second two octets of the NTS key
+exporter context do not follow the
+https://datatracker.ietf.org/doc/html/rfc8915#section-5.1[section 5.1] of
+RFC 8915. The value that is included in the context is 15 (AES-SIV-CMAC-256)
+instead of 30 (AES-128-GCM-SIV). This bug prevents interoperation with NTS
+implementations correctly following RFC 8915, in both server-client and
+client-server directions.
+
+When this document was written, `chrony` was the only known implementation
+supporting AES-128-GCM-SIV. The bug can easily be fixed, but all clients and
+servers would need be updated at the same time to avoid disruptions.
+
+Instead, a new NTS-KE record is introduced to enable a gradual migration to the
+compliant context. The expectation is that `chrony` and other implementations
+that want to interoperate with `chrony` will default to the noncompliant
+context until all servers and clients can negotiate the compliant context with
+the new NTS-KE record. At that point, the default can be switched to the
+compliant context. When everything defaults to the compliant context, the
+NTS-KE record can be deprecated.
+
+== Compliant AES-128-GCM-SIV Exporter Context
+
+The Compliant AES-128-GCM-SIV Exporter Context NTS-KE record negotiates the use
+of the compliant exporter context for the AES-128-GCM-SIV AEAD. The Record Type
+number is 1024. The body MUST be empty. The critical bit MUST NOT be set for
+this record.
+
+An NTS client which supports the Compliant AES-128-GCM-SIV Exporter Context
+record SHOULD add it to every NTS-KE request which includes AES-128-GCM-SIV in
+the AEAD Algorithm Negotiation NTS-KE record.
+
+If a server which supports the Compliant AES-128-GCM-SIV Exporter Context
+record receives a request containing this record and selects the
+AES-128-GCM-SIV AEAD, it MUST include this record in its response and use the
+compliant exporter context to generate the NTS keys used for this client. It
+the server selects a different AEAD algorithm, it MUST NOT include this record
+in the NTS-KE response.
+
+If the client receives an NTS-KE response containing this record, it MUST use
+the compliant exporter context to generate the NTS keys.
+
+If the NTS-KE request or response does not contain this record, the server and
+client SHOULD use the noncompliant exporter context corresponding to the
+AES-SIV-CMAC-256 AEAD until all servers and clients in use negotiate the
+compliant context with this record.
+
+The client MAY switch between the two exporter contexts if all responses
+received from the server after an NTS-KE session are NTS NAK in order to
+interoperate with servers that use the compliant context, but do not support
+this NTS-KE record. The server MUST NOT provide in one NTS-KE response a set of
+cookies mixing the two exporter contexts to not interfere with the client-side
+switching of the context. The server MAY include both sets of keys using the
+different contexts in one cookie in order to detect which context is used by
+the client and send a response which will pass the client's authentication
+check.
+
+== Acknowledgements
+
+This workaround for the `chrony` bug was suggested by Daniel Franke.
