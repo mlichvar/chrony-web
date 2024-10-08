@@ -1,7 +1,7 @@
 News
 ====
 
-== 2 Sep 2024: chrony-4.6.1 released
+== 8 Oct 2024: chrony-4.6.1 released
 
 === Enhancements
 
