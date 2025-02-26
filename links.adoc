@@ -3,8 +3,8 @@
 == Public NTP servers
 
 - https://www.pool.ntp.org/[pool.ntp.org]
-- http://support.ntp.org/bin/view/Servers/StratumOneTimeServers[List of stratum-1 servers]
-- http://support.ntp.org/bin/view/Servers/StratumTwoTimeServers[List of stratum-2 servers]
+- https://support.ntp.org/bin/view/Servers/StratumOneTimeServers[List of stratum-1 servers]
+- https://support.ntp.org/bin/view/Servers/StratumTwoTimeServers[List of stratum-2 servers]
 - https://github.com/jauderho/nts-servers[List of servers with NTS support]
 
 == Installation, configuration, and monitoring
@@ -12,6 +12,7 @@
 - https://whatroute.net/chronycontrol.html[ChronyControl -- install and configure chronyd on macOS]
 - https://galaxy.ansible.com/list#/roles?autocomplete=chrony[Ansible chrony roles]
 - https://augeas.net/docs/references/lenses/files/chrony-aug.html[Augeas chrony module]
+- https://gitlab.com/chrony/libchrony[Library for chronyd monitoring]
 - https://collectd.org/[collectd chrony plugin]
 - https://github.com/munin-monitoring/contrib/tree/master/plugins/chrony[Munin chrony plugin]
 - https://exchange.nagios.org/directory/Plugins/Network-Protocols/NTP-and-Time/check_ntp(chrony)/details[Nagios chrony check]
@@ -57,7 +58,8 @@
 
 - https://www.ntp.org/[NTP]
 - https://www.ntpsec.org/[NTPsec]
-- http://www.openntpd.org/[OpenNTPD]
+- https://github.com/pendulum-project/ntpd-rs[ntpd-rs]
+- https://www.openntpd.org/[OpenNTPD]
 - https://busybox.net/[BusyBox]
 - https://01.org/connman[ConnMan]
 - https://github.com/DragonFlyBSD/DragonFlyBSD/tree/master/usr.sbin/dntpd[dntpd]
