@@ -2,6 +2,13 @@
 
 * link:faq.html[Frequently Asked Questions]
 
+== chrony 4.7
+* Manual pages
+** link:doc/4.7/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/4.7/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/4.7/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/4.7/installation.html[Installation]
+
 == chrony 4.6.1
 * Manual pages
 ** link:doc/4.6.1/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
