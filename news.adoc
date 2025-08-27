@@ -1,7 +1,22 @@
 News
 ====
 
-== Jun 11 2025: chrony-4.7 released
+== 27 Aug 2025: chrony-4.8 released
+
+=== Enhancements
+
+* Add maxunreach option to limit selection of unreachable sources
+* Add -u option to chronyc to drop root privileges (default chronyc
+  user is set by configure script)
+
+=== Bug fixes
+
+* Hide chronyc socket to mitigate unsafe permissions change
+* Fix refclock extpps option to work on Linux >= 6.15
+* Validate refclock samples for reachability updates
+
+
+== 11 Jun 2025: chrony-4.7 released
 
 === Enhancements
 
