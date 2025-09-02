@@ -25,6 +25,7 @@
 - https://github.com/mlichvar/ntp2chrony[ntp2chrony -- convert ntp configuration to chrony]
 - https://github.com/mlichvar/timedatex[timedatex -- systemd-timedated replacement]
 - https://github.com/bradh/chrony-java-parent[Command and monitoring protocol in Java]
+- https://satpulse.net/[SatPulse -- NTP+PTP server using GPS receiver and HW PPS timestamping]
 
 == SHM, SOCK, and PPS reference clocks
 
