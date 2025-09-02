@@ -39,7 +39,7 @@
 
 == Miscellanous
 
-- https://web.archive.org/web/20171028123642/https://www.coreinfrastructure.org/news/blogs/2017/09/securing-network-time[Security audit(archived from original)]
+- https://web.archive.org/web/20171028123642/https://www.coreinfrastructure.org/news/blogs/2017/09/securing-network-time[Security audit (archived from original)]
 - https://developers.redhat.com/blog/2015/06/01/five-different-ways-handle-leap-seconds-ntp[Handling leap seconds]
 - https://github.com/dennypage/ethtscal[Ethernet timestamp calibration]
 - https://github.com/not1337/pps-stuff[Linux PPS utilities]
