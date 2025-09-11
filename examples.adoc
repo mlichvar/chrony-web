@@ -226,6 +226,89 @@ If the error due to PCIe latency was not larger than 100 nanoseconds, the
 system clock would be accurate to about 250 nanoseconds relative to the
 reference clock of the server.
 
+== Client using local server and hardware timestamping with PTP switches
+
+If the switches in the local network can operate as PTP one-step end-to-end
+transparent clocks, the configuration shown in the previous section can be
+further improved to encapsulate NTP messages in PTP messages (NTP over PTP) in
+order for the switches to modify the PTP messages with their delay corrections
+and the NTP client apply the corrections to its NTP measurements. Two-step,
+peer-to-peer, and boundary PTP clocks are not useful for NTP over PTP.
+
+If the corrections provided by the switches are accurate, they effectively
+eliminate the impact of their queuing and processing delays on accuracy and
+stability of NTP measurements. From the client's point of view, the network
+behaves as if the client was connected to the server directly, or through a
+network hub as was common in the era of 10/100Mbps Ethernet. The network load
+has negligible impact.
+
+Both the server and client need to have the PTP event port enabled by the
+`ptpport 319` directive. The client also needs to have the PTP port specified
+for the server and enabled the F324 extension field to get the PTP corrections
+of its requests back from the server.
+
+The automatically estimated precision of the system clock might be too large
+for such precise measurements, adding significant noise to NTP timestamps. It
+should be reduced by the `clockprecision` directive, at least on the server.
+
+In this example, the network has four FS IES3110-8TF-R switches (configured as
+one-step end-to-end transparent PTP clocks for IP/UDP transport) between the
+server and client, which have the I210 cards. The client has the following
+configuration:
+
+----
+server 192.168.123.1 minpoll -4 maxpoll -4 xleave extfield F323 extfield F324 filter 5 port 319
+ptpport 319
+clockprecision 1e-9
+hwtimestamp * minpoll -4
+driftfile /var/lib/chrony/drift
+makestep 0.1 3
+rtcsync
+----
+
+Reports from `chronyc`:
+
+----
+$ chronyc -n tracking
+Reference ID    : C0A87B01 (192.168.123.1)
+Stratum         : 2
+Ref time (UTC)  : Thu Sep 04 03:48:50 2025
+System time     : 0.000000001 seconds slow of NTP time
+Last offset     : +0.000000000 seconds
+RMS offset      : 0.000000003 seconds
+Frequency       : 1.692 ppm slow
+Residual freq   : -0.000 ppm
+Skew            : 0.001 ppm
+Root delay      : 0.000026077 seconds
+Root dispersion : 0.000019915 seconds
+Update interval : 0.3 seconds
+Leap status     : Normal
+$ chronyc -n sources
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^* 192.168.123.1                 1  -4   377     0     -4ns[   -4ns] +/-   33us
+$ chronyc -n sourcestats
+Name/IP Address            NP  NR  Span  Frequency  Freq Skew  Offset  Std Dev
+==============================================================================
+192.168.123.1              18   8     6     -0.000      0.001     -0ns     2ns
+----
+
+The following graph shows the client's tracking offset and error of the
+clock measured with the shared PPS signal.
+
+image::img/client-hwts-4switch-ptp-f323.png[]
+
+When compared to the graph of the client not using PTP corrections from the
+previous section, there is no asymmetry and the stability has improved
+significantly.
+
+However, the unknown error due to asymmetric PCIe latency is still present. To
+avoid this error, the client and server (unless it uses the same NIC for NTP and
+PPS) would need to have a NIC, CPU, and motherboard supporting the PCIe
+Precision Time Measurement (PTM) feature, or another way to perform cross
+timestamping. `chronyd` uses cross timestamping if it is provided by the kernel
+driver (it can be disabled by the `nocrossts` option).
+
 == Server using reference clock on serial port 
 
 One of the easier ways to make a stratum-1 NTP server is to connect a GPS
@@ -361,6 +444,7 @@ The server has the following configuration:
 refclock PHC /dev/ptp0:extpps:pin=0 dpoll -4 poll -2 rate 16 width 0.03125 refid GPS lock NMEA maxlockage 32
 refclock SHM 0 refid NMEA noselect offset 0.120 poll 6 delay 0.010
 hwtimestamp * minpoll -4
+clockprecision 1e-9
 makestep 0.1 3
 allow
 rtcsync
