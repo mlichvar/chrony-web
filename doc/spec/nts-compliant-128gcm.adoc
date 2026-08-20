@@ -18,13 +18,14 @@ reliable over Internet, where some major network operators are known to block
 or limit rate of longer NTP packets as a mitigation against NTP mode-6 and
 mode-7 amplification attacks.
 
-The AES-128-GCM-SIV support has a bug. The second two octets of the NTS key
-exporter context do not follow the
-https://datatracker.ietf.org/doc/html/rfc8915#section-5.1[section 5.1] of
-RFC 8915. The value that is included in the context is 15 (AES-SIV-CMAC-256)
-instead of 30 (AES-128-GCM-SIV). This bug prevents interoperation with NTS
-implementations correctly following RFC 8915, in both server-client and
-client-server directions.
+The AES-128-GCM-SIV support has a bug in the NTS key extraction specified in
+https://datatracker.ietf.org/doc/html/rfc8915#section-5.1[section 5.1] of RFC
+8915. The third and fourth octets of the five-octet per-association context
+value (the Numeric Identifier of the negotiated AEAD algorithm in network byte
+order) contain a value of 15 (AES-SIV-CMAC-256) instead of 30
+(AES-128-GCM-SIV). This bug causes different keys to be used for authentication
+of NTP messages in both server-client and client-server directions, preventing
+interoperation with clients and servers that correctly follow RFC 8915.
 
 When this document was written, `chrony` was the only known implementation
 supporting AES-128-GCM-SIV. The bug can easily be fixed, but all clients and
