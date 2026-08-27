@@ -230,10 +230,11 @@ reference clock of the server.
 
 If the switches in the local network can operate as PTP one-step end-to-end
 transparent clocks, the configuration shown in the previous section can be
-further improved to encapsulate NTP messages in PTP messages (NTP over PTP) in
-order for the switches to modify the PTP messages with their delay corrections
-and the NTP client apply the corrections to its NTP measurements. Two-step,
-peer-to-peer, and boundary PTP clocks are not useful for NTP over PTP.
+further improved to encapsulate NTP messages in PTP messages (NTP over PTP
+specified in RFC 10030) in order for the switches to modify the PTP messages
+with their delay corrections and the NTP client apply the corrections to its
+NTP measurements. Two-step, peer-to-peer, and boundary PTP clocks are not
+useful for NTP over PTP.
 
 If the corrections provided by the switches are accurate, they effectively
 eliminate the impact of their queuing and processing delays on accuracy and
@@ -247,9 +248,10 @@ Both the server and client need to have the PTP event port enabled by the
 for the server and enabled the F324 extension field to get the PTP corrections
 of its requests back from the server.
 
-The automatically estimated precision of the system clock might be too large
-for such precise measurements, adding significant noise to NTP timestamps. It
-should be reduced by the `clockprecision` directive, at least on the server.
+In `chrony` versions before 4.9, the automatically estimated precision of the
+system clock might be too large for such precise measurements, adding
+significant noise to NTP timestamps. It should be reduced by the
+`clockprecision` directive, at least on the server.
 
 In this example, the network has four FS IES3110-8TF-R switches (configured as
 one-step end-to-end transparent PTP clocks for IP/UDP transport) between the

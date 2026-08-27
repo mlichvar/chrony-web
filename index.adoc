@@ -25,9 +25,9 @@ operating parameters whilst it is running.
 
 == Supported systems
 
-The software is supported on Linux, FreeBSD, NetBSD, macOS, and illumos.
-Closely related systems may work too. Any other system will likely require a
-porting exercise.
+The software is known to work on Linux, FreeBSD, NetBSD, OpenBSD, macOS,
+and illumos.  Closely related systems may work too.  Any other system
+will likely require a porting exercise.
 
 == Contact
 

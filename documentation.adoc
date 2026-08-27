@@ -9,6 +9,13 @@
 ** link:doc/latest/chronyc.html[chronyc(1) - command-line interface for chronyd]
 * link:doc/latest/installation.html[Installation]
 
+== chrony 4.9
+* Manual pages
+** link:doc/4.9/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
+** link:doc/4.9/chronyd.html[chronyd(8) - chrony daemon]
+** link:doc/4.9/chronyc.html[chronyc(1) - command-line interface for chronyd]
+* link:doc/4.9/installation.html[Installation]
+
 == chrony 4.8
 * Manual pages
 ** link:doc/4.8/chrony.conf.html[chrony.conf(5) - chronyd configuration file]
