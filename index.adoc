@@ -31,12 +31,15 @@ will likely require a porting exercise.
 
 == Contact
 
-There are `chrony-user` and `chrony-devel` mailing lists for user questions,
-bug reports, submitting patches, and development discussion. See the
-<<lists.adoc#,mailing lists>> page for more information.
+Bug reports, questions, and suggestions can be submitted to the project's
+https://gitlab.com/chrony/chrony/-/work_items[GitLab tracker], or sent to the
+`chrony-users` mailing list. Patches can be submitted as
+https://gitlab.com/chrony/chrony/-/merge_requests[merge requests], or to
+the `chrony-dev` mailing list. See the <<lists.adoc#,mailing lists>> page
+for more information.
 
-Security bugs are an exception and should be reported directly to the
-maintainer using encryption.
+When reporting a security issue, please report it to the GitLab tracker and
+mark it as a confidential issue.
 
 `chrony` was originally written by http://www.rc0.org.uk/index.html[Richard
 Curnow]. It is currently maintained and developed by
