@@ -50,7 +50,7 @@ find any.
 | Adaptive sample filtering  | Yes     | No      | No      | No
 | Sample weighting           | Yes     | No      | No      | No
 | Frequency tracking         | Yes     | No      | No      | No
-| Restore state from file    | Yes     | No      | No      | No
+| State can be restored from file | Yes     | No      | No      | No
 |==========================================================
 
 
@@ -80,10 +80,10 @@ find any.
 | Limited number of steps    | Yes (configurable) | No      | No      | Yes
 | Panic threshold            | Infinity (configurable) | 1000 s (configurable) | 1000 s (configurable) | N/A
 | Maximum slew rate          |
-    System specific (Linux: 100000 ppm, FreeBSD, NetBSD, macOS: 5000 ppm, illumos: 32500 ppm) (configurable) |
+    System specific (Linux, OpenBSD: 100000 ppm, FreeBSD, NetBSD, macOS: 5000 ppm, illumos: 32500 ppm) (configurable) |
     500 ppm      | 500 ppm     |
     System specific (Linux: 500 ppm, FreeBSD, NetBSD: 5000 ppm, illumos: 65000 ppm)
-| Restore frequency from file | Yes     | Yes     | Yes     | Yes
+| Frequency can be restored from file | Yes     | Yes     | Yes     | Yes
 | Limited wakeups (power saving) | Yes      | No      | No     | Yes
 | Temperature compensation   | Yes     | No      | No     | No
 |==========================================================
@@ -137,7 +137,7 @@ find any.
 | Adaptive delay-based sample filtering  | Yes     | No      | No      | No
 | Estimation of asymmetric jitter | Yes     | No      | No      | No
 | KoD RATE handling          | Yes     | Yes     | Yes     | No
-| Ready for next NTP era (year 2036) | Yes | Yes     | Yes      | No
+| Ready for next NTP era (year 2036) | Yes     | Yes     | Yes      | Yes
 | Extra timestamp validation | No      | No      | No      | Yes (HTTPS date)
 | Configurable port number   | Yes     | No      | No      | No
 | Multicast messaging        | No      | Yes     | No      | No
@@ -149,7 +149,6 @@ find any.
 [cols="<.^2h,4*^.^1",width="83%",options="header"]
 |==========================================================
 |                            | `chrony`| `ntp`   | `ntpsec`| `openntpd`
-| Protocol version           | NTPv4   | NTPv4   | NTPv4   | SNTPv4
 | Root dispersion/delay accumulation | Yes     | Yes     | Yes     | No
 | Adaptive dispersion rate   | Yes     | No      | No      | N/A
 | Access control             | Yes     | Yes     | Yes     | No
@@ -237,7 +236,7 @@ find any.
 | RTC drift tracking         | Yes (Linux) | No      | No     | No
 | RTC trimming               | Yes (Linux) | No      | No     | No
 | Kernel RTC synchronization | Yes (Linux, OpenBSD, macOS) | Yes (Linux)   | Yes (Linux)    | Yes (Linux)
-| Restore time from file w/o RTC | Yes     | No      | No     | No
+| Time can be restored from file w/o RTC | Yes     | No      | No     | No
 |==========================================================
 
 
